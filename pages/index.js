@@ -88,5 +88,10 @@ react player
 authentication = next auth
 google auth
 
+https://console.cloud.google.com/
+google client id 
+google client secret 
+and api
+
 session method  if login then only then watch
  */

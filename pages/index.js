@@ -98,3 +98,6 @@ session method  if login then only then watch
  */
 
 //https://console.cloud.google.com/apis/credentials?project=netflix-356317
+
+// https://netflix-seven-steel.vercel.app/
+// https://netflix-ankitwest.vercel.app/

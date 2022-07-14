@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import { signIn } from 'next-auth/react';
 
-function index() {
+function signin() {
   return (
     <main>
       <div>
@@ -34,7 +34,7 @@ function index() {
   );
 }
 
-export default index;
+export default signin;
 
 /*
    src="https://dataintegration.info/wp-content/uploads/2021/05/15lyavS59mazOFnb55Z6znQ-eBR0nt.png"

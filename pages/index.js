@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import Slider from '../components/Slider';
@@ -10,7 +9,7 @@ const index = ({ upcoming, popular, top_rated, now_playing, trending }) => {
     <main>
       <Head>
         <title> Netflix | Home</title>
-        {/* <link rel="icon" href="/images/netflix-logo.svg" /> */}
+        <link rel="icon" href="/images/netflix-logo.svg" />
       </Head>
       <Header />
       <Hero results={upcoming} />
@@ -80,6 +79,8 @@ things used
 material ui
 api from tmdb.org
 sidebar hide
+
+Swiper, SwiperSlide
 
 useEffect useState
 

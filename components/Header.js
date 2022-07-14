@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { useSession, signOut } from 'next-auth/react';
 
 function Header() {
   const [header, setHeader] = useState(false);
+  const { data: session } = useSession();
 
   const transitionNavbar = () => {
     if (window.scrollY > 70) setHeader(true);
@@ -34,9 +36,17 @@ function Header() {
         <p className="menu-items">my list</p>
       </div>
 
-      <div className="">
-        <p className="text-gray-200">Login</p>
-      </div>
+      {session && (
+        <div onClick={signOut} className="cursor-pointer">
+          <Image
+            src={session.user.image}
+            width="40"
+            height="40"
+            alt=""
+            className="rounded-full"
+          />
+        </div>
+      )}
     </main>
   );
 }

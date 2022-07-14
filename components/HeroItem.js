@@ -1,8 +1,24 @@
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import React from 'react';
+import { useSession } from 'next-auth/react';
 
 function HeroItem({ result }) {
   const baseURL = 'https://image.tmdb.org/t/p/original/';
+  const router = useRouter();
+  const { data: session } = useSession();
+
+  function logIn() {
+    if (session) {
+      router.push(`/movie/${result.id}`);
+    } else {
+      router.push(`/signin`);
+    }
+  }
+
+  function movie() {
+    router.push('/movie/${result.id}');
+  }
   return (
     <section className="relative h-screen md:h-[80vh] lg:h-screen z-20">
       <div>
@@ -35,6 +51,7 @@ function HeroItem({ result }) {
               className="bg-red-800/70 text-gray-300 h-8 w-28 md:h-10 md:w-32 rounded-lg
            cursor-pointer hover:bg-red-700 hover:text-gray-100
             duration-200 transition-all ease-in-out uppercase"
+              onClick={logIn}
             >
               Play Now
             </button>

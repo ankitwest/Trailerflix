@@ -8,6 +8,10 @@ const index = ({ upcoming, popular, top_rated, now_playing, trending }) => {
   //   console.log(upcoming);
   return (
     <main>
+      <Head>
+        <title> Netflix | Home</title>
+        {/* <link rel="icon" href="/images/netflix-logo.svg" /> */}
+      </Head>
       <Header />
       <Hero results={upcoming} />
       <Slider results={popular} title="Most Popular Movies" />
@@ -58,6 +62,7 @@ export async function getServerSideProps() {
 }
 
 /*
+rfc
 rfce - simple;
 rafce - arrow;
 yarn nextjs
@@ -68,3 +73,20 @@ yarn nextjs
 
 //npm run start
 //yarn
+
+/*
+things used
+
+material ui
+api from tmdb.org
+sidebar hide
+
+useEffect useState
+
+react player
+
+authentication = next auth
+google auth
+
+session method  if login then only then watch
+ */

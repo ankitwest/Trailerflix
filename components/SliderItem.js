@@ -1,10 +1,26 @@
 import Image from 'next/image';
 import React from 'react';
+import { useRouter } from 'next/router';
+import { useSession } from 'next-auth/react';
 
 function SliderItem({ result }) {
   const baseURL = 'https://image.tmdb.org/t/p/original/';
+  const router = useRouter();
+  const { data: session } = useSession();
+
+  function logIn() {
+    if (session) {
+      router.push(`/movie/${result.id}`);
+    } else {
+      router.push(`/signin`);
+    }
+  }
+
   return (
-    <div className="relative flex min-w-[250px] h-[10rem] hover:border-2 hover:scale-105 duration-500">
+    <div
+      onClick={logIn}
+      className="relative flex min-w-[250px] h-[10rem] hover:border-2 hover:scale-105 duration-500"
+    >
       <Image
         src={`${baseURL}${result.backdrop_path || result.poster_path}`}
         width="330"
